@@ -17,7 +17,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/advantages" element={<Advantages />} />
         <Route path="/brend" element={<Brend />} />
-        <Route path="/open-group" element={<OpenGroup />} />
+        <Route path="/opengroup" element={<OpenGroup />} />
         <Route path="/contract" element={<Contract />} />
         <Route path="*" element={<NotFound/>} />
       </Route>
