@@ -1,5 +1,6 @@
 import { useState } from "react";
 import dom from "../assets/house.png"
+import logo from "../assets/image5.png"
 
 function App() {
   const [form, setForm] = useState({
@@ -42,18 +43,16 @@ function App() {
       <div className="mx-auto w-full max-w-[920px] bg-white">
 
         {/* HEADER */}
-        <header className="bg-white">
+        <header className="bg-[#D9D9D9]">
 
           <div className="flex items-center justify-between px-6 py-5 sm:px-10">
 
             {/* LOGO */}
             <div className="flex items-center gap-2">
 
-              <div className="h-0 w-0 border-b-[18px] border-l-[30px] border-t-[18px] border-b-transparent border-t-transparent border-l-blue-500"></div>
+              <div className="h-0 w-0 border-b-[18px] border-l-[30px] border-t-[18px] border-b-transparent border-t-transparent border-blue-500"></div>
 
-              <h1 className="text-3xl font-black tracking-[5px] text-black">
-                TRUE
-              </h1>
+            <img src={logo} alt="" />
 
             </div>
 
@@ -148,40 +147,7 @@ function App() {
 
 
         {/* ADVANTAGES */}
-        <section
-          id="advantages"
-          className="bg-gray-100 px-6 py-10"
-        >
-
-          <h2 className="mb-7 text-center text-lg font-bold text-black">
-            ПРЕИМУЩЕСТВА
-          </h2>
-
-          <div className="flex flex-wrap justify-center gap-3">
-
-            <div className="border border-gray-300 bg-white px-5 py-3 text-sm text-black shadow-sm">
-              Фитнес-зона
-            </div>
-
-            <div className="border border-gray-300 bg-white px-5 py-3 text-sm text-black shadow-sm">
-              Кардио-зона
-            </div>
-
-            <div className="border border-gray-300 bg-white px-5 py-3 text-sm text-black shadow-sm">
-              Групповые тренировки
-            </div>
-
-            <div className="border border-gray-300 bg-white px-5 py-3 text-sm text-black shadow-sm">
-              Раздевалки
-            </div>
-
-            <div className="border border-gray-300 bg-white px-5 py-3 text-sm text-black shadow-sm">
-              Зона отдыха
-            </div>
-
-          </div>
-
-        </section>
+    
 
 
         {/* FORM */}
@@ -190,7 +156,7 @@ function App() {
           className="bg-gray-200 px-6 py-12 sm:px-16"
         >
 
-          <div className="mx-auto max-w-[540px]">
+        <div className="mx-auto max-w-[540px]">
 
             <h2 className="mb-8 text-center text-lg font-bold text-black">
               ОТПРАВИТЬ ЗАЯВКУ
@@ -199,7 +165,7 @@ function App() {
 
             {sent ? (
 
-              /* SUCCESS */
+        
               <div className="rounded bg-white p-10 text-center shadow">
 
                 <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 text-2xl font-bold text-white">
@@ -230,25 +196,26 @@ function App() {
                 className="space-y-6"
               >
 
-                {/* NAME */}
+             
                 <div>
 
-                  <label className="mb-2 block text-xs font-bold text-black">
+                  <label className="mb-2 block text-xs font-bold text-black "  >
                     ВАШЕ ИМЯ
                   </label>
 
                   <input
                     type="text"
                     name="name"
+                      placeholder=" Имя"
                     value={form.name}
                     onChange={handleChange}
-                    className="w-full border-0 border-b-2 border-gray-400 bg-transparent px-0 py-2 text-sm text-black outline-none focus:border-blue-500"
+                className="w-full border-0 border-b-2 border-gray-400 bg-transparent px-0 py-2 text-sm text-black outline-none focus:border-blue-500 placeholder-grey-400 font-bold" 
                   />
 
                 </div>
 
 
-                {/* EMAIL */}
+             
                 <div>
 
                   <label className="mb-2 block text-xs font-bold text-black">
@@ -258,15 +225,17 @@ function App() {
                   <input
                     type="email"
                     name="email"
+                    placeholder="E-mail"
                     value={form.email}
                     onChange={handleChange}
-                    className="w-full border-0 border-b-2 border-gray-400 bg-transparent px-0 py-2 text-sm text-black outline-none focus:border-blue-500"
+                className="w-full border-0 border-b-2 border-gray-400 bg-transparent px-0 py-2 text-sm text-black outline-none focus:border-blue-500 placeholder-grey-400 font-bold" 
+               
                   />
 
                 </div>
 
 
-                {/* PHONE */}
+           
                 <div>
 
                   <label className="mb-2 block text-xs font-bold text-black">
@@ -279,13 +248,14 @@ function App() {
                     placeholder="+998 (__) ___-__-__"
                     value={form.phone}
                     onChange={handleChange}
-                    className="w-full border-0 border-b-2 border-gray-400 bg-transparent px-0 py-2 text-sm text-black outline-none placeholder:text-gray-500 focus:border-blue-500"
+                className="w-full border-0 border-b-2 border-gray-400 bg-transparent px-0 py-2 text-sm text-black outline-none focus:border-blue-500 placeholder-grey-400 font-bold" 
+              
                   />
 
                 </div>
 
 
-                {/* CITY */}
+          
                 <div>
 
                   <label className="mb-2 block text-xs font-bold text-black">
@@ -295,87 +265,126 @@ function App() {
                   <input
                     type="text"
                     name="city"
+                    placeholder="Город"
                     value={form.city}
                     onChange={handleChange}
-                    className="w-full border-0 border-b-2 border-gray-400 bg-transparent px-0 py-2 text-sm text-black outline-none focus:border-blue-500"
+                className="w-full border-0 border-b-2 border-gray-400 bg-transparent px-0 py-2 text-sm text-black outline-none focus:border-blue-500 placeholder-grey-400 font-bold" 
+                  
                   />
 
                 </div>
 
 
-                {/* CHECKBOX 1 */}
+            
                 <div>
 
                   <p className="mb-3 text-xs font-bold text-black">
                     ХОТИТЕ ОТКРЫТЬ:
                   </p>
 
-                  <label className="mb-2 flex items-center gap-2 text-sm">
+                  <label className="mb-2 flex items-center gap-2 text-sm text-black">
                     <input
                       type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
+                      className="h-4 w-4 appearance-none rounded-full border border-black bg-white checked:bg-blue-500 "
+
                     />
-                    Фитнес-клуб
+                    Фитнес студия
                   </label>
 
-                  <label className="mb-2 flex items-center gap-2 text-sm">
+       
+                  <label className="mb-2 flex items-center gap-2 text-sm text-black">
                     <input
                       type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
+                      className="h-4 w-4 appearance-none rounded-full border border-black bg-white checked:bg-blue-500 "
+                      
                     />
-                    Студию
+                       Фитнес-клуб
                   </label>
+                  
+                  <label className="mb-2 flex items-center gap-2 text-sm text-black">
+                    <input
+                      type="checkbox"
+                      className="h-4 w-4 appearance-none rounded-full border border-black bg-white checked:bg-blue-500 "
 
-                  <label className="flex items-center gap-2 text-sm">
+                    />
+                       Домашний спортзал
+                  </label>
+                       
+                  <label className="mb-2 flex items-center gap-2 text-sm text-black">
                     <input
                       type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
+                      className="h-4 w-4 appearance-none rounded-full border border-black bg-white checked:bg-blue-500 "
+
                     />
-                    Другой формат
+                  Тренажерный зал в отеле, санатории
                   </label>
+                       
+                  <label className="mb-2 flex items-center gap-2 text-sm text-black">
+                    <input
+                      type="checkbox"
+                      className="h-4 w-4 appearance-none rounded-full border border-black bg-white checked:bg-blue-500 "
+
+                    />
+                   Корпоративный спортзал
+                  </label>
+                  
 
                 </div>
 
 
-                {/* CHECKBOX 2 */}
+             
                 <div>
 
                   <p className="mb-3 text-xs font-bold text-black">
                     ПЛАНИРУЕМЫЙ СРОК ЗАПУСКА ПРОЕКТА:
                   </p>
 
-                  <label className="mb-2 flex items-center gap-2 text-sm">
+                  <label className="mb-2 flex items-center gap-2 text-sm text-black">
                     <input
                       type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
+                      className="h-4 w-4 appearance-none rounded-full border border-black bg-white checked:bg-blue-500 "
+
                     />
-                    В ближайшие 3 месяца
+                    Фитнес студия
                   </label>
 
-                  <label className="mb-2 flex items-center gap-2 text-sm">
+       
+                  <label className="mb-2 flex items-center gap-2 text-sm text-black">
                     <input
                       type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
+                      className="h-4 w-4 appearance-none rounded-full border border-black bg-white checked:bg-blue-500 "
+                      
                     />
-                    3–6 месяцев
+                       Фитнес-клуб
                   </label>
-
-                  <label className="mb-2 flex items-center gap-2 text-sm">
+                  
+                  <label className="mb-2 flex items-center gap-2 text-sm text-black">
                     <input
                       type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
-                    />
-                    6–12 месяцев
-                  </label>
+                      className="h-4 w-4 appearance-none rounded-full border border-black bg-white checked:bg-blue-500 "
 
-                  <label className="flex items-center gap-2 text-sm">
+                    />
+                       Домашний спортзал
+                  </label>
+                       
+                  <label className="mb-2 flex items-center gap-2 text-sm text-black">
                     <input
                       type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
-                    />
-                    Более года
-                  </label>
+                      className="h-4 w-4 appearance-none rounded-full border border-black bg-white checked:bg-blue-500 "
 
+                    />
+                  Тренажерный зал в отеле, санатории
+                  </label>
+                       
+                  <label className="mb-2 flex items-center gap-2 text-sm text-black">
+                    <input
+                      type="checkbox"
+                      className="h-4 w-4 appearance-none rounded-full border border-black bg-white checked:bg-blue-500 "
+
+                    />
+                   Корпоративный спортзал
+                  </label>
+                
                 </div>
 
 
@@ -386,37 +395,45 @@ function App() {
                     КАКИЕ УСЛУГИ ВАС ИНТЕРЕСУЮТ:
                   </p>
 
-                  <label className="mb-2 flex items-center gap-2 text-sm">
+
+                  <label className="mb-2 flex items-center gap-2 text-sm text-black">
                     <input
                       type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
+                      className="h-4 w-4 appearance-none rounded-none border border-black bg-white checked:bg-blue-500 "
+
                     />
-                    Фитнес
+                    Консультация
                   </label>
 
-                  <label className="mb-2 flex items-center gap-2 text-sm">
+       
+                  <label className="mb-2 flex items-center gap-2 text-sm text-black">
                     <input
                       type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
+                      className="h-4 w-4 appearance-none rounded-none border border-black bg-white checked:bg-blue-500 "
+                      
                     />
-                    Персональные тренировки
+                       Подбор оборудования
                   </label>
+                  
+                  <label className="mb-2 flex items-center gap-2 text-sm text-black">
+                    <input
+                      type="checkbox"
+                      className="h-4 w-4 appearance-none rounded-none border border-black bg-white checked:bg-blue-500 "
 
-                  <label className="mb-2 flex items-center gap-2 text-sm">
+                    />
+                       Расстановка тренажеров на плане
+                  </label>
+                       
+                  <label className="mb-2 flex items-center gap-2 text-sm text-black">
                     <input
                       type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
-                    />
-                    Групповые программы
-                  </label>
+                      className="h-4 w-4 appearance-none rounded-none border border-black bg-white checked:bg-blue-500 "
 
-                  <label className="flex items-center gap-2 text-sm">
-                    <input
-                      type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
                     />
-                    Другие услуги
+                  Лизинг
                   </label>
+                       
+              
 
                 </div>
 
@@ -448,7 +465,7 @@ function App() {
                     value={form.comment}
                     onChange={handleChange}
                     rows="4"
-                    className="w-full resize-none border-2 border-gray-400 bg-white p-3 text-black text-sm outline-none focus:border-blue-500"
+                    className="w-full resize-none border border-gray-500 bg-transparent p-3 outline-none text-black"
                   />
 
                 </div>
@@ -486,13 +503,16 @@ function App() {
             <div>
 
               <h3 className="mb-4 text-sm font-bold">
-                КАТЕГОРИИ
+                КАТАЛОГ ТОВАРОВ
               </h3>
 
-              <p className="mb-2 text-xs">Фитнес-клубы</p>
-              <p className="mb-2 text-xs">Открытие клуба</p>
-              <p className="mb-2 text-xs">TRUE CLUB</p>
-              <p className="text-xs">Новости</p>
+              <p className="mb-2 text-xs">Кардио тренажеры</p>
+              <p className="mb-2 text-xs">Composite Strength</p>
+              <p className="mb-2 text-xs">True Stretch</p>
+              <p className="text-xs">Сайклинг</p>
+               <p className="text-xs">Групповые тренировки</p>
+                <p className="text-xs">Силовые тренажеры</p>
+                 <p className="text-xs">Консоли</p>
 
             </div>
 
@@ -503,10 +523,12 @@ function App() {
                 ИНФОРМАЦИЯ
               </h3>
 
-              <p className="mb-2 text-xs">О компании</p>
+              <p className="mb-2 text-xs">О О Бренде</p>
               <p className="mb-2 text-xs">Преимущества</p>
               <p className="mb-2 text-xs">Открыть клуб</p>
-              <p className="text-xs">Партнёрам</p>
+              <p className="text-xs">продукции</p>
+                <p className="text-xs">контакты</p>
+
 
             </div>
 
@@ -518,16 +540,14 @@ function App() {
               </h3>
 
               <p className="mb-2 text-xs">
-                +998 (90) 999-99-99
+               Политика конфиденциальности
               </p>
 
               <p className="mb-2 text-xs">
-                info@true.uz
+                Контакты
               </p>
 
-              <p className="text-xs">
-                г. Ташкент
-              </p>
+       
 
             </div>
 
@@ -535,7 +555,7 @@ function App() {
             <div>
 
               <h3 className="mb-4 text-sm font-bold">
-                ПОДПИШИСЬ НА НОВОСТИ
+               ПОДПИСАТЬСЯ НА НОВОСТИ И АКЦИИ
               </h3>
 
               <div className="flex">
@@ -562,7 +582,7 @@ function App() {
 
 
           <div className="mt-8 border-t border-white/40 pt-5 text-center text-xs">
-            © 2026 TRUE CLUB. Все права защищены.
+            © 2026 TRUE CLUB. 
           </div>
 
         </footer>
