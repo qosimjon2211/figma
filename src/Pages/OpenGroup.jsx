@@ -1,7 +1,7 @@
 import { useState } from "react";
-import dom from "../assets/house.png"
+import dom from "../assets/house.png";
 
-function App() {
+function OpenGroup() {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -13,564 +13,210 @@ function App() {
   const [sent, setSent] = useState(false);
 
   const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!form.name || !form.email || !form.phone || !form.city) {
       alert("Iltimos, barcha kerakli joylarni to'ldiring!");
       return;
     }
-
     setSent(true);
   };
 
-  const scrollToForm = () => {
-    document
-      .getElementById("form")
-      .scrollIntoView({ behavior: "smooth" });
-  };
+  const advantages = [
+    "Фитнес-зона",
+    "Кардио-зона",
+    "Групповые тренировки",
+    "Раздевалки",
+    "Зона отдыха",
+  ];
 
   return (
     <div className="min-h-screen bg-gray-300">
-
       <div className="mx-auto w-full max-w-[920px] bg-white">
 
-        {/* HEADER */}
-        <header className="bg-white">
-
-          <div className="flex items-center justify-between px-6 py-5 sm:px-10">
-
-            {/* LOGO */}
-            <div className="flex items-center gap-2">
-
-              <div className="h-0 w-0 border-b-[18px] border-l-[30px] border-t-[18px] border-b-transparent border-t-transparent border-l-blue-500"></div>
-
-              <h1 className="text-3xl font-black tracking-[5px] text-black">
-                TRUE
-              </h1>
-
-            </div>
-
-            {/* BUTTON */}
-            <button
-              onClick={scrollToForm}
-              className="rounded bg-blue-500 px-5 py-3 text-[10px] font-bold text-white transition hover:bg-blue-600 active:scale-95"
-            >
-              ОСТАВИТЬ ЗАЯВКУ
-            </button>
-
-          </div>
-
-
-          {/* NAV */}
-          <nav className="border-t border-gray-300 bg-white">
-
-            <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 px-4 py-3">
-
-              <a
-                href="#about"
-                className="text-[10px] font-bold text-black hover:text-blue-500"
-              >
-                О КЛУБЕ
-              </a>
-
-              <a
-                href="#concept"
-                className="text-[10px] font-bold text-black hover:text-blue-500"
-              >
-                КОНЦЕПЦИЯ
-              </a>
-
-              <a
-                href="#advantages"
-                className="text-[10px] font-bold text-black hover:text-blue-500"
-              >
-                ПРЕИМУЩЕСТВА
-              </a>
-
-              <a
-                href="#form"
-                className="text-[10px] font-bold text-black hover:text-blue-500"
-              >
-                ОТКРЫТЬ КЛУБ
-              </a>
-
-              <a
-                href="#contacts"
-                className="text-[10px] font-bold text-black hover:text-blue-500"
-              >
-                КОНТАКТЫ
-              </a>
-
-            </div>
-
-          </nav>
-
-        </header>
-
-
         {/* BLUE SECTION */}
-        <section
-          id="about"
-          className="bg-blue-500 px-5 py-7 text-center"
-        >
-
-          <p className="text-[10px] font-bold uppercase tracking-widest text-white">
+        <section className="bg-[#00A0E9] px-5 py-8 md:py-10 text-center">
+          <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#FCEE21]">
             КЛУБ TRUE
           </p>
-
-          <h2 className="mt-2 text-xl font-bold text-white">
+          <h2 className="mt-2 text-xl sm:text-2xl font-bold text-white">
             ОТКРЫТЬ КЛУБ ВМЕСТЕ С TRUE
           </h2>
-
         </section>
 
-
         {/* IMAGE */}
-        <section
-          id="concept"
-          className="bg-white px-6 py-12 sm:px-12"
-        >
-
+        <section className="bg-white px-4 sm:px-8 md:px-12 py-8 md:py-12">
           <img
             src={dom}
             alt="TRUE club"
             className="mx-auto w-full max-w-[650px] object-contain"
           />
-
         </section>
-
 
         {/* ADVANTAGES */}
-        <section
-          id="advantages"
-          className="bg-gray-100 px-6 py-10"
-        >
-
-          <h2 className="mb-7 text-center text-lg font-bold text-black">
+        <section className="bg-gray-100 px-4 sm:px-8 py-8 md:py-10">
+          <h2 className="mb-6 text-center text-lg font-bold text-black">
             ПРЕИМУЩЕСТВА
           </h2>
-
           <div className="flex flex-wrap justify-center gap-3">
-
-            <div className="border border-gray-300 bg-white px-5 py-3 text-sm text-black shadow-sm">
-              Фитнес-зона
-            </div>
-
-            <div className="border border-gray-300 bg-white px-5 py-3 text-sm text-black shadow-sm">
-              Кардио-зона
-            </div>
-
-            <div className="border border-gray-300 bg-white px-5 py-3 text-sm text-black shadow-sm">
-              Групповые тренировки
-            </div>
-
-            <div className="border border-gray-300 bg-white px-5 py-3 text-sm text-black shadow-sm">
-              Раздевалки
-            </div>
-
-            <div className="border border-gray-300 bg-white px-5 py-3 text-sm text-black shadow-sm">
-              Зона отдыха
-            </div>
-
+            {advantages.map((item, i) => (
+              <div
+                key={i}
+                className="border border-gray-300 bg-white px-4 py-2.5 text-xs sm:text-sm text-black shadow-sm whitespace-nowrap"
+              >
+                {item}
+              </div>
+            ))}
           </div>
-
         </section>
 
-
         {/* FORM */}
-        <section
-          id="form"
-          className="bg-gray-200 px-6 py-12 sm:px-16"
-        >
-
+        <section id="form" className="bg-gray-200 px-4 sm:px-8 md:px-16 py-10 md:py-12">
           <div className="mx-auto max-w-[540px]">
-
-            <h2 className="mb-8 text-center text-lg font-bold text-black">
+            <h2 className="mb-6 md:mb-8 text-center text-lg font-bold text-black">
               ОТПРАВИТЬ ЗАЯВКУ
             </h2>
 
-
             {sent ? (
-
               /* SUCCESS */
-              <div className="rounded bg-white p-10 text-center shadow">
-
-                <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 text-2xl font-bold text-white">
+              <div className="rounded bg-white p-8 md:p-10 text-center shadow">
+                <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#00A0E9] text-2xl font-bold text-white">
                   ✓
                 </div>
-
-                <h3 className="text-lg font-bold text-black">
-                  ЗАЯВКА ОТПРАВЛЕНА
-                </h3>
-
-                <p className="mt-2 text-sm text-gray-600">
-                  Спасибо! Мы свяжемся с вами.
-                </p>
-
+                <h3 className="text-lg font-bold text-black">ЗАЯВКА ОТПРАВЛЕНА</h3>
+                <p className="mt-2 text-sm text-gray-600">Спасибо! Мы свяжемся с вами.</p>
                 <button
                   onClick={() => setSent(false)}
-                  className="mt-6 rounded bg-blue-500 px-6 py-3 text-xs font-bold text-white hover:bg-blue-600"
+                  className="mt-6 rounded bg-[#00A0E9] px-6 py-3 text-xs font-bold text-white hover:bg-[#008CCB] transition"
                 >
                   ОТПРАВИТЬ ЕЩЁ
                 </button>
-
               </div>
-
             ) : (
-
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-6"
-              >
-
+              <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
                 {/* NAME */}
                 <div>
-
-                  <label className="mb-2 block text-xs font-bold text-black">
-                    ВАШЕ ИМЯ
-                  </label>
-
+                  <label className="mb-1.5 block text-xs font-bold text-black">ВАШЕ ИМЯ</label>
                   <input
                     type="text"
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    className="w-full border-0 border-b-2 border-gray-400 bg-transparent px-0 py-2 text-sm text-black outline-none focus:border-blue-500"
+                    className="w-full border-0 border-b-2 border-gray-400 bg-transparent px-0 py-2 text-sm text-black outline-none focus:border-[#00A0E9] transition"
                   />
-
                 </div>
-
 
                 {/* EMAIL */}
                 <div>
-
-                  <label className="mb-2 block text-xs font-bold text-black">
-                    E-MAIL
-                  </label>
-
+                  <label className="mb-1.5 block text-xs font-bold text-black">E-MAIL</label>
                   <input
                     type="email"
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    className="w-full border-0 border-b-2 border-gray-400 bg-transparent px-0 py-2 text-sm text-black outline-none focus:border-blue-500"
+                    className="w-full border-0 border-b-2 border-gray-400 bg-transparent px-0 py-2 text-sm text-black outline-none focus:border-[#00A0E9] transition"
                   />
-
                 </div>
-
 
                 {/* PHONE */}
                 <div>
-
-                  <label className="mb-2 block text-xs font-bold text-black">
-                    НОМЕР ТЕЛЕФОНА
-                  </label>
-
+                  <label className="mb-1.5 block text-xs font-bold text-black">НОМЕР ТЕЛЕФОНА</label>
                   <input
                     type="tel"
                     name="phone"
                     placeholder="+998 (__) ___-__-__"
                     value={form.phone}
                     onChange={handleChange}
-                    className="w-full border-0 border-b-2 border-gray-400 bg-transparent px-0 py-2 text-sm text-black outline-none placeholder:text-gray-500 focus:border-blue-500"
+                    className="w-full border-0 border-b-2 border-gray-400 bg-transparent px-0 py-2 text-sm text-black outline-none placeholder:text-gray-500 focus:border-[#00A0E9] transition"
                   />
-
                 </div>
-
 
                 {/* CITY */}
                 <div>
-
-                  <label className="mb-2 block text-xs font-bold text-black">
-                    ГОРОД
-                  </label>
-
+                  <label className="mb-1.5 block text-xs font-bold text-black">ГОРОД</label>
                   <input
                     type="text"
                     name="city"
                     value={form.city}
                     onChange={handleChange}
-                    className="w-full border-0 border-b-2 border-gray-400 bg-transparent px-0 py-2 text-sm text-black outline-none focus:border-blue-500"
+                    className="w-full border-0 border-b-2 border-gray-400 bg-transparent px-0 py-2 text-sm text-black outline-none focus:border-[#00A0E9] transition"
                   />
-
                 </div>
 
-
-                {/* CHECKBOX 1 */}
+                {/* CHECKBOX 1 - ХОТИТЕ ОТКРЫТЬ */}
                 <div>
-
-                  <p className="mb-3 text-xs font-bold text-black">
-                    ХОТИТЕ ОТКРЫТЬ:
-                  </p>
-
-                  <label className="mb-2 flex items-center gap-2 text-sm">
-                    <input
-                      type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
-                    />
-                    Фитнес-клуб
-                  </label>
-
-                  <label className="mb-2 flex items-center gap-2 text-sm">
-                    <input
-                      type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
-                    />
-                    Студию
-                  </label>
-
-                  <label className="flex items-center gap-2 text-sm">
-                    <input
-                      type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
-                    />
-                    Другой формат
-                  </label>
-
+                  <p className="mb-3 text-xs font-bold text-black">ХОТИТЕ ОТКРЫТЬ:</p>
+                  {["Фитнес-клуб", "Студию", "Другой формат"].map((label, i) => (
+                    <label key={i} className="mb-2 flex items-center gap-2 text-sm cursor-pointer">
+                      <input type="checkbox" className="h-4 w-4 accent-[#00A0E9]" />
+                      {label}
+                    </label>
+                  ))}
                 </div>
 
-
-                {/* CHECKBOX 2 */}
+                {/* CHECKBOX 2 - ПЛАНИРУЕМЫЙ СРОК */}
                 <div>
-
-                  <p className="mb-3 text-xs font-bold text-black">
-                    ПЛАНИРУЕМЫЙ СРОК ЗАПУСКА ПРОЕКТА:
-                  </p>
-
-                  <label className="mb-2 flex items-center gap-2 text-sm">
-                    <input
-                      type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
-                    />
-                    В ближайшие 3 месяца
-                  </label>
-
-                  <label className="mb-2 flex items-center gap-2 text-sm">
-                    <input
-                      type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
-                    />
-                    3–6 месяцев
-                  </label>
-
-                  <label className="mb-2 flex items-center gap-2 text-sm">
-                    <input
-                      type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
-                    />
-                    6–12 месяцев
-                  </label>
-
-                  <label className="flex items-center gap-2 text-sm">
-                    <input
-                      type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
-                    />
-                    Более года
-                  </label>
-
+                  <p className="mb-3 text-xs font-bold text-black">ПЛАНИРУЕМЫЙ СРОК ЗАПУСКА ПРОЕКТА:</p>
+                  {["В ближайшие 3 месяца", "3–6 месяцев", "6–12 месяцев", "Более года"].map((label, i) => (
+                    <label key={i} className="mb-2 flex items-center gap-2 text-sm cursor-pointer">
+                      <input type="checkbox" className="h-4 w-4 accent-[#00A0E9]" />
+                      {label}
+                    </label>
+                  ))}
                 </div>
 
-
-                {/* CHECKBOX 3 */}
+                {/* CHECKBOX 3 - УСЛУГИ */}
                 <div>
-
-                  <p className="mb-3 text-xs font-bold text-black">
-                    КАКИЕ УСЛУГИ ВАС ИНТЕРЕСУЮТ:
-                  </p>
-
-                  <label className="mb-2 flex items-center gap-2 text-sm">
-                    <input
-                      type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
-                    />
-                    Фитнес
-                  </label>
-
-                  <label className="mb-2 flex items-center gap-2 text-sm">
-                    <input
-                      type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
-                    />
-                    Персональные тренировки
-                  </label>
-
-                  <label className="mb-2 flex items-center gap-2 text-sm">
-                    <input
-                      type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
-                    />
-                    Групповые программы
-                  </label>
-
-                  <label className="flex items-center gap-2 text-sm">
-                    <input
-                      type="checkbox"
-                      className="h-4 w-4 accent-blue-500"
-                    />
-                    Другие услуги
-                  </label>
-
+                  <p className="mb-3 text-xs font-bold text-black">КАКИЕ УСЛУГИ ВАС ИНТЕРЕСУЮТ:</p>
+                  {["Фитнес", "Персональные тренировки", "Групповые программы", "Другие услуги"].map((label, i) => (
+                    <label key={i} className="mb-2 flex items-center gap-2 text-sm cursor-pointer">
+                      <input type="checkbox" className="h-4 w-4 accent-[#00A0E9]" />
+                      {label}
+                    </label>
+                  ))}
                 </div>
-
 
                 {/* FILE */}
                 <div>
-
-                  <label className="mb-3 block text-xs font-bold text-black">
-                    ЗАГРУЗИТЬ ПЛАН ПОМЕЩЕНИЯ
-                  </label>
-
+                  <label className="mb-2 block text-xs font-bold text-black">ЗАГРУЗИТЬ ПЛАН ПОМЕЩЕНИЯ</label>
                   <input
                     type="file"
-                    className="text-sm file:mr-4 file:rounded file:border-0 file:bg-blue-500 file:px-4 file:py-2 file:font-bold file:text-white hover:file:bg-blue-600"
+                    className="block w-full text-xs sm:text-sm file:mr-3 file:rounded file:border-0 file:bg-[#00A0E9] file:px-4 file:py-2 file:text-xs file:font-bold file:text-white hover:file:bg-[#008CCB] file:transition file:cursor-pointer"
                   />
-
                 </div>
-
 
                 {/* COMMENT */}
                 <div>
-
-                  <label className="mb-2 block text-xs font-bold text-black">
-                    КОММЕНТАРИИ
-                  </label>
-
+                  <label className="mb-1.5 block text-xs font-bold text-black">КОММЕНТАРИИ</label>
                   <textarea
                     name="comment"
                     value={form.comment}
                     onChange={handleChange}
                     rows="4"
-                    className="w-full resize-none border-2 border-gray-400 bg-white p-3 text-black text-sm outline-none focus:border-blue-500"
+                    className="w-full resize-none border-2 border-gray-400 bg-white p-3 text-sm text-black outline-none focus:border-[#00A0E9] transition"
                   />
-
                 </div>
 
-
                 {/* SUBMIT */}
-                <div className="pt-3 text-center">
-
+                <div className="pt-2 text-center">
                   <button
                     type="submit"
-                    className="rounded bg-blue-500 px-10 py-3 text-sm font-bold text-white transition hover:bg-blue-600 active:scale-95"
+                    className="rounded bg-[#00A0E9] px-10 py-3 text-sm font-bold text-white transition hover:bg-[#008CCB] active:scale-95 w-full sm:w-auto"
                   >
                     ОТПРАВИТЬ
                   </button>
-
                 </div>
-
               </form>
-
             )}
-
           </div>
-
         </section>
 
-
-        {/* FOOTER */}
-        <footer
-          id="contacts"
-          className="bg-blue-500 px-8 py-10 text-white"
-        >
-
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-4">
-
-            <div>
-
-              <h3 className="mb-4 text-sm font-bold">
-                КАТЕГОРИИ
-              </h3>
-
-              <p className="mb-2 text-xs">Фитнес-клубы</p>
-              <p className="mb-2 text-xs">Открытие клуба</p>
-              <p className="mb-2 text-xs">TRUE CLUB</p>
-              <p className="text-xs">Новости</p>
-
-            </div>
-
-
-            <div>
-
-              <h3 className="mb-4 text-sm font-bold">
-                ИНФОРМАЦИЯ
-              </h3>
-
-              <p className="mb-2 text-xs">О компании</p>
-              <p className="mb-2 text-xs">Преимущества</p>
-              <p className="mb-2 text-xs">Открыть клуб</p>
-              <p className="text-xs">Партнёрам</p>
-
-            </div>
-
-
-            <div>
-
-              <h3 className="mb-4 text-sm font-bold">
-                КОНТАКТЫ
-              </h3>
-
-              <p className="mb-2 text-xs">
-                +998 (90) 999-99-99
-              </p>
-
-              <p className="mb-2 text-xs">
-                info@true.uz
-              </p>
-
-              <p className="text-xs">
-                г. Ташкент
-              </p>
-
-            </div>
-
-
-            <div>
-
-              <h3 className="mb-4 text-sm font-bold">
-                ПОДПИШИСЬ НА НОВОСТИ
-              </h3>
-
-              <div className="flex">
-
-                <input
-                  placeholder="E-MAIL"
-                  className="w-full bg-white px-3 py-2 text-xs text-black outline-none"
-                />
-
-                <button
-                  onClick={() =>
-                    alert("Спасибо за подписку!")
-                  }
-                  className="bg-yellow-400 px-4 font-bold text-black hover:bg-yellow-300"
-                >
-                  →
-                </button>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div className="mt-8 border-t border-white/40 pt-5 text-center text-xs">
-            © 2026 TRUE CLUB. Все права защищены.
-          </div>
-
-        </footer>
-
       </div>
-
     </div>
   );
 }
 
-export default App;
+export default OpenGroup;
